@@ -2,7 +2,7 @@
 
 import type React from "react";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect,Suspense  } from "react";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -30,7 +30,7 @@ export default function SignIn() {
   const [isLoading, setIsLoading] = useState(false);
 
   // Redirect if already authenticated
-  useEffect(() => {
+  useEffect(() => { 
     if (status === "authenticated" && session) {
       router.push(callbackUrl);
     }
